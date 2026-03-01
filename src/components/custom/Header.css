@@ -145,7 +145,169 @@
     transform: scale(1.05);
 }
 
-/* Dark mode variant */
+/* Dark mode variant *//* Improved CSS Code */
+
+/* Global Variables */
+:root {
+  --background-primary: #0f172a4d;
+  --background-secondary: #1e293b65;
+  --accent-color: #4f46e5;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --gradient-start: #4338ca;
+  --gradient-end: #6366f1;
+  --font-family: 'Orbitron', sans-serif;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.5rem;
+  --font-size-small: 1rem;
+  --font-weight-bold: 700;
+  --border-radius: 50px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Container */
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10.4%;
+  backdrop-filter: blur(20px);
+  color: var(--text-primary);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1000;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+/* Header Scrolled */
+.header-scrolled {
+  background-color: var(--background-secondary);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Header Hovered */
+.header-hovered {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  transform: scale(1.01);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+/* Logo Container */
+.logo-container {
+  font-family: var(--font-family);
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 5s ease infinite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+/* AI Badge */
+.ai-badge {
+  font-family: var(--font-family);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  vertical-align: super;
+  animation: gradientFlow 5s ease infinite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dashboard-button,
+.get-started-button {
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+  color: white;
+  border: none;
+  padding: 0.625rem 1.25rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dashboard-button::before,
+.get-started-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.dashboard-button:hover::before,
+.get-started-button:hover::before {
+  left: 0;
+}
+
+.dashboard-button:hover,
+.get-started-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.75rem 1rem;
+  }
+
+  .logo-container {
+    font-size: var(--font-size-medium);
+  }
+
+  .auth-buttons {
+    gap: 0.5rem;
+  }
+
+  .dashboard-button,
+  .get-started-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
 .dark .ai-badge {
     background-color: #1e40af; /* Tailwind blue-800 */
     color: #e0f2fe; /* Light blue text */
